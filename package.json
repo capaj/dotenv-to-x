@@ -1,0 +1,40 @@
+{
+  "name": "@capaj/dotenv-to-x",
+  "version": "1.0.0",
+  "description": "Convert environment variables between different cloud providers",
+  "main": "./dist/index.js",
+  "bin": {
+    "dotenv-to-gh": "./dist/github.js",
+    "dotenv-to-cf": "./dist/cloudflare.js"
+  },
+  "scripts": {
+    "test": "vitest",
+    "ts": "tsc --noEmit",
+    "build": "tsup src/github.ts src/cloudflare.ts --format cjs --dts",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/bun": "^1.1.13",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.5"
+  },
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@inquirer/prompts": "^7.1.0"
+  }
+}
