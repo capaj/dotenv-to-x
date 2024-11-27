@@ -4,6 +4,8 @@
 
 tiny CLI util to put secrets into github/cloudflare
 
+⚠️ requires bun installed on your system
+
 ## Usage
 
 ```bash
