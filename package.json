@@ -11,7 +11,7 @@
     "test": "vitest",
     "ts": "tsc --noEmit",
     "build": "tsup src/github.ts src/cloudflare.ts --format cjs --dts",
-    "prepublishOnly": "npm run build",
+    "prepublishOnly": "pnpm run build",
     "prepare": "husky install"
   },
   "keywords": [
