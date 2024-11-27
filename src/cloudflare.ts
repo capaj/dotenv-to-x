@@ -1,5 +1,3 @@
-#!/usr/bin/env bun
-
 import { readFileSync, readdirSync } from 'fs'
 import { $ } from 'bun'
 import { select } from '@inquirer/prompts'
