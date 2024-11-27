@@ -1,26 +1,34 @@
 {
   "name": "@capaj/dotenv-to-x",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Convert environment variables between different cloud providers",
   "main": "./dist/index.js",
   "bin": {
-    "dotenv-to-gh": "./dist/github.js",
-    "dotenv-to-cf": "./dist/cloudflare.js"
+    "dotenv-to-gh": "./dist/github-cli.js",
+    "dotenv-to-cf": "./dist/cloudflare-cli.js"
   },
   "scripts": {
     "test": "vitest",
     "ts": "tsc --noEmit",
     "build": "tsup src/github.ts src/cloudflare.ts --format cjs --dts",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "prepare": "husky install"
   },
-  "keywords": [],
+  "keywords": [
+    "github",
+    "cloudflare",
+    "secrets"
+  ],
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@types/bun": "^1.1.13",
+    "@types/bun": "^1.1.14",
+    "husky": "^9.1.7",
+    "prettier": "^3.4.1",
+    "pretty-quick": "^4.0.0",
     "tsup": "^8.3.5",
     "typescript": "^5.7.2",
-    "vitest": "^2.1.5"
+    "vitest": "^2.1.6"
   },
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -36,5 +44,14 @@
   ],
   "dependencies": {
     "@inquirer/prompts": "^7.1.0"
+  },
+  "lint-staged": {
+    "*.{js,css,md}": "prettier --write",
+    "*": "prettier --ignore-unknown --write"
+  },
+  "tsup": {
+    "external": [
+      "bun"
+    ]
   }
 }
